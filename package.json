@@ -1,0 +1,19 @@
+{
+  "name": "react-auth0",
+  "version": "1.0.0",
+  "description": "React App using Auth0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcus122/React-Auth0.git"
+  },
+  "author": "Marcus Atty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcus122/React-Auth0/issues"
+  },
+  "homepage": "https://github.com/Marcus122/React-Auth0#readme"
+}
