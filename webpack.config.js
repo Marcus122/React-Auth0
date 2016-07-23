@@ -4,8 +4,9 @@ module.exports = {
     context: __dirname + "/src",
     entry: "./index.js",
     output: {
-        path: __dirname + "/dist",
-	filename: "bundle.js"
+        path: __dirname,
+        publicPath: '/',
+	    filename: "bundle.js"
     },
     module: {
         loaders: [
@@ -16,6 +17,7 @@ module.exports = {
     },
     devtool: "source-map",
     devServer: {
-        contentBase: __dirname + "/dist",
+        historyApiFallback: true,
+        contentBase: './'
     }
 }
