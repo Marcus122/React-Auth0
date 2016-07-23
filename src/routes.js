@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
-import AuthService from 'utils/AuthService';
+import AuthService from './utils/AuthService';
 
 import App from './components/app';
 import Home from './components/home';
