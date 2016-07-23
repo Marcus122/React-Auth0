@@ -29,6 +29,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "auth0-lock": "^10.0.0",
     "axios": "^0.13.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
