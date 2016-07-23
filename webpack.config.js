@@ -4,9 +4,9 @@ module.exports = {
     context: __dirname + "/src",
     entry: "./index.js",
     output: {
-        path: __dirname,
-        publicPath: '/',
-	    filename: "bundle.js"
+        path: __dirname + "dist",
+        publicPath: 'assets/',
+	filename: "bundle.js"
     },
     module: {
         loaders: [

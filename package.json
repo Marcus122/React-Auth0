@@ -2,7 +2,7 @@
   "name": "react-auth0",
   "version": "1.0.0",
   "description": "React App using Auth0",
-  "main": "dist/index.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "webpack",
