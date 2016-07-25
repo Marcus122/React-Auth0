@@ -6,8 +6,8 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 var authenticate = jwt({
-  secret: new Buffer("3wo8FMW7BI0K2IddH_h54exvldCkm7k42beznOHZ54WMofiZ5bvwAZvLJdm6EogP", 'base64'),
-  audience: "7kXfnR65i6pMiRPN7N7fWLAjlqlCflqZ"
+  secret: new Buffer("", 'base64'),
+  audience: ""
 });
 
 //Updating needs authorisation
