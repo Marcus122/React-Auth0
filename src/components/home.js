@@ -8,9 +8,11 @@ export default class Home extends Component {
   }
   render() {
     const {auth} = this.props;
+    const login = <button className="btn btn-primary" onClick={auth.login.bind(this)}>Login</button>;
+    const logout = <button className="btn btn-danger" onClick={auth.logout.bind(this)}>Logout</button>;
     return (
       <div>
-        <button className="btn btn-primary" onClick={auth.login.bind(this)}>Login</button>
+        {auth.loggedIn() ? logout: login}
       </div>
     );
   }
