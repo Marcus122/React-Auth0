@@ -1,0 +1,12 @@
+.error{
+    color:red;
+}
+header{
+    padding:20px 0;
+}
+header ul{
+    display:inline-block;
+}
+header button{
+    float:right;
+}
