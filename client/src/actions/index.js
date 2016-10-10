@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_POSTS, FETCH_USER_POSTS, GET_PROFILE, PROFILE_UPDATED, POST_CREATED } from './types';
+import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_POSTS, FETCH_USER_POSTS, GET_PROFILE, PROFILE_UPDATED, POST_CREATED, IMAGE_UPLOADED } from './types';
 import Auth0Lock from 'auth0-lock';
 
 const clientId ='7kXfnR65i6pMiRPN7N7fWLAjlqlCflqZ';
@@ -31,6 +31,9 @@ export function signinUser(){
 export function getProfile(){
     return function(dispatch){
         lock.getProfile(localStorage.getItem('token'), (error, profile) => {
+            if(error && error.error === 401){
+                return  dispatch(signoutUser());
+            }
             dispatch({type:GET_PROFILE,payload:profile});
         });
     }
@@ -62,9 +65,7 @@ export function fetchUserPosts(){
         .catch(response => {
             dispatch(authError(response.response.data.error));
             if(response.response.status === 401){
-                dispatch({
-                    type: UNAUTH_USER
-                });
+                return dispatch(signoutUser());
             }
         });
     }
@@ -82,14 +83,13 @@ export function fetchPosts(){
     }
 }
 
-export function createPost(){
+export function createPost({title,content}){
     return function(dispatch){
-        var title = new Date().toLocaleTimeString();
-        axios({
+        return axios({
             method:"post",
             url:`${ROOT_URL}/api/posts`,
             headers:{Authorization: 'Bearer ' + localStorage.getItem('token')},
-            data:{title:"Test " + title ,content:"Testing"}
+            data:{title:title ,content:content}
         })
         .then(response => {
             dispatch(fetchUserPosts());
@@ -97,9 +97,7 @@ export function createPost(){
         .catch(response => {
             dispatch(authError(response.message));
             if(response.response.status === 401){
-                dispatch({
-                    type: UNAUTH_USER
-                });
+               dispatch(signoutUser());
             }
         });
     }
@@ -122,9 +120,30 @@ export function updateProfile(userId, data){
         .catch(response => {
             dispatch(authError(response.message));
             if(response.response.status === 401){
-                dispatch({
-                    type: UNAUTH_USER
-                });
+                dispatch(signoutUser());
+            }
+        });
+    }
+}
+
+export function uploadImage(formData){
+    return function(dispatch){
+        axios({
+            method:"post",
+            url:`${ROOT_URL}/upload`,
+            headers:{Authorization: 'Bearer ' + localStorage.getItem('token')},
+            data:formData
+        })
+        .then(response => {
+            dispatch({
+                type: IMAGE_UPLOADED,
+                payload: {url:`${ROOT_URL}/uploads/${response.data.file}`,file:response.data.file}
+            });
+        })
+        .catch(response => {
+            dispatch(authError(response.message));
+            if(response.response && response.response.status === 401){
+                dispatch(signoutUser());
             }
         });
     }

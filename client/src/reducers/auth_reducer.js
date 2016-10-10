@@ -1,4 +1,4 @@
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_USER_POSTS, GET_PROFILE, PROFILE_UPDATED, POST_CREATED } from '../actions/types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_USER_POSTS, GET_PROFILE, PROFILE_UPDATED, POST_CREATED, IMAGE_UPLOADED } from '../actions/types';
 
 export default function(state={},action){
     switch(action.type){
@@ -14,6 +14,8 @@ export default function(state={},action){
             return {...state, profile: action.payload}
         case PROFILE_UPDATED:
             return {...state, profile: action.payload}
+        case IMAGE_UPLOADED:
+            return {...state, image: action.payload}
     }
     return state;
 }

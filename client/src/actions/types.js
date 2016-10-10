@@ -6,3 +6,4 @@ export const FETCH_USER_POSTS = 'fetch_user_posts';
 export const GET_PROFILE = 'get_profile';
 export const PROFILE_UPDATED = 'profile_updated';
 export const POST_CREATED = 'post_created';
+export const IMAGE_UPLOADED = 'image_uploaded';

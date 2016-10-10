@@ -10,6 +10,7 @@ import Signout from './components/auth/signout';
 import Profile from './components/profile';
 import RequireAuth from './components/auth/require_auth';
 import Welcome from './components/welcome';
+import CreatePost from './components/create_post';
 import reducers from './reducers';
 import {AUTH_USER} from './actions/types';
 
@@ -29,6 +30,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={Welcome}/>
         <Route path="profile" component={RequireAuth(Profile)}/>
+        <Route path="create" component={RequireAuth(CreatePost)}/>
       </Route>
     </Router>
   </Provider>

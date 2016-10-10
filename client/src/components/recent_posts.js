@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
+import Post from './ui/post';
 
 class RecentPosts extends Component{
     componentWillMount(){
@@ -10,7 +11,7 @@ class RecentPosts extends Component{
         if(!this.props.posts) return;
         return this.props.posts.map(post => {
             return (
-                <li>{post.title}</li>
+                <Post key={post._id} title={post.title} text={post.content} date={new Date(post.date)} image={post.image}/>
             );
         });
     }
@@ -18,9 +19,9 @@ class RecentPosts extends Component{
         return(
             <div>
                 <h3>Recent Posts</h3>
-                <ul>
+                <div className="post-list">
                 {this.printPosts()}
-                </ul>
+                </div>
             </div>
         );
     }

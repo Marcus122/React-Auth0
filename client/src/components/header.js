@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Link} from 'react-router';
+import NavLink from './ui/nav_link';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 
@@ -7,10 +7,10 @@ class Header extends Component{
     renderLinks(){
         return (
             <ul className="nav nav-tabs">
-                <li role="presentation"><Link to="/">Home</Link></li>
-                <li role="presentation"><Link to="/profile">Profile</Link></li>
-                <li role="presentation"><Link to="#">Messages</Link></li>
-                <li role="presentation"><Link to="/create">Create Post</Link></li>
+                <NavLink to="/" text="Home"/>
+                <NavLink to="/profile" text="Profile"/>
+                <NavLink to="/messages" text="Messages"/>
+                <NavLink to="/create" text="Create Post"/>
             </ul>
         );
     }
@@ -24,6 +24,14 @@ class Header extends Component{
     render(){
         return(
             <header>
+                <div className="header-bar">
+                    <div className="jumbotron jumbotron-fluid">
+                        <div className="container">
+                            <h1 className="display-3">Title</h1>
+                            <p className="lead">Subtext.</p>
+                        </div>
+                    </div>
+                </div>
                 <nav className="navbar navbar-light">
                     {this.renderLinks()}
                     {this.renderLogin()}

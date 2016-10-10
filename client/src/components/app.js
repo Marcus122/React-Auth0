@@ -3,6 +3,7 @@ import * as actions from '../actions';
 import {connect} from 'react-redux';
 
 import Header from './header';
+import Footer from './footer';
 
 class App extends Component {
   constructor(props){
@@ -14,6 +15,7 @@ class App extends Component {
       <div>
         <Header/>
         {this.props.children}
+        <Footer/>
       </div>
     );
   }

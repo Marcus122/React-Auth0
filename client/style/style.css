@@ -1,12 +1,61 @@
 .error{
     color:red;
 }
-header{
-    padding:20px 0;
-}
 header ul{
     display:inline-block;
 }
 header button{
     float:right;
+}
+.profile-image{
+    border-radius:100%;
+    max-width:100px;
+    height:auto;
+}
+.post-list{
+    display:flex;
+    flex-wrap: wrap;
+}
+.post-list .card{
+    width:30.3333333%;
+    min-width:300px;
+    margin:1.5%;
+}
+*[contentEditable="true"]{
+    outline:none;
+}
+.post-editor{
+    padding: 2rem;
+    border: 1px solid rgba(64, 58, 58, 0.3);
+    border-radius: 6px;
+}
+.post-editor .placeholder{
+    position:absolute;
+    z-index:-1;
+    color:grey;
+}
+.post-editor .title{
+    font-size:24px;
+}
+.post-editor>*{
+    padding: 2rem 4rem;
+}
+body>container{
+    padding-bottom:40px;
+}
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    left:0;
+    background-color: #eceeef;
+    padding:1rem;
+}
+.editor-toolbar.btn-group{
+    border: 1px solid grey;
+    padding: 0;
+    border-radius: 5px;
+}
+.post-editor #content > div{
+    margin: 0 0 2rem 0;
 }
